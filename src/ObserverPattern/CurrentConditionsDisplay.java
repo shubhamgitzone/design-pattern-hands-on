@@ -1,5 +1,8 @@
 package ObserverPattern;
 
+/*
+ * this concrete implentation of observer must register itself with concrete subject to recive updates.
+ */
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
 
 	private float temperature;
@@ -11,10 +14,19 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 		weatherData.registerObserver(this);
 	}
 
+//	push
+//	@Override
+//	public void update(float temp, float humidity, float pressure) {
+//		this.temperature = temp;
+//		this.humidity = humidity;
+//		display();
+//	}
+
+//	pull
 	@Override
-	public void update(float temp, float humidity, float pressure) {
-		this.temperature = temp;
-		this.humidity = humidity;
+	public void update() {
+		this.temperature = weatherData.getTemperature();
+		this.humidity = weatherData.getHumidity();
 		display();
 	}
 
