@@ -1,4 +1,4 @@
-package factoryPattern;
+package dpWithDurgesh.factoryPattern;
 
 public class DeveloperClient {
 
